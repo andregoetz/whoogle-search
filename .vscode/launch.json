@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "app",
+            "justMyCode": true,
+            "env": {
+                "WHOOGLE_CONFIG_LANGUAGE": "lang_en",
+                "WHOOGLE_CONFIG_ALTS": "1",
+                "WHOOGLE_RESULTS_PER_PAGE": "20",
+                "WHOOGLE_ALT_YT": "piped.andiru.de",
+                "WHOOGLE_ALT_RD": "libreddit.andiru.de",
+                "WHOOGLE_ALT_WIKI": "",
+                "WHOOGLE_ALT_MD": "scribe.rip",
+            },
+        },
+    ],
+}
