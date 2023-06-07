@@ -36,24 +36,24 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: build and push the image
-        if: startsWith(github.ref, 'refs/heads/main') && github.actor == 'benbusby'
+        if: startsWith(github.ref, 'refs/heads/main') && github.actor == 'andregoetz'
         run: |
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx ls
           docker buildx build --push \
-            --tag benbusby/whoogle-search:latest \
+            --tag andiru/whoogle-search:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
           docker buildx build --push \
-            --tag ghcr.io/benbusby/whoogle-search:latest \
+            --tag ghcr.io/andregoetz/whoogle-search:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
       - name: build and push tag
-        if: startsWith(github.ref, 'refs/tags')
+        if: startsWith(github.ref, 'refs/tags') && github.actor == 'andregoetz'
         run: |
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx ls
           docker buildx build --push \
-            --tag benbusby/whoogle-search:${GITHUB_REF#refs/*/v}\
+            --tag andiru/whoogle-search:${GITHUB_REF#refs/*/v}\
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
           docker buildx build --push \
-            --tag ghcr.io/benbusby/whoogle-search:${GITHUB_REF#refs/*/v}\
+            --tag ghcr.io/andregoetz/whoogle-search:${GITHUB_REF#refs/*/v}\
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
